@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #1e1410;
+  --espresso: #3a2419;
+  --espresso-deep: #2a1a12;
+  --parchment: #f5edda;
+  --paper: #fffdf7;
+  --amber: #b0651c;
+  --amber-light: #d68a3f;
+  --sage: #5b7553;
+  --rust: #b23a24;
+  --line: #e2d5b8;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-espresso: var(--espresso);
+  --color-espresso-deep: var(--espresso-deep);
+  --color-parchment: var(--parchment);
+  --color-paper: var(--paper);
+  --color-amber: var(--amber);
+  --color-amber-light: var(--amber-light);
+  --color-sage: var(--sage);
+  --color-rust: var(--rust);
+  --color-line: var(--line);
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-data: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-data {
+  font-family: var(--font-data);
+}
+
+/* Receipt signature element on the Kasir page: torn-paper bottom edge */
+.receipt-edge-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 10px), transparent calc(100% - 10px)),
+    repeating-linear-gradient(to right, transparent 0 4px, black 4px 12px);
+  -webkit-mask-size: 100% 100%, 16px 10px;
+  -webkit-mask-position: 0 0, 0 bottom;
+  -webkit-mask-repeat: no-repeat, repeat-x;
+  mask-image: linear-gradient(to bottom, black calc(100% - 10px), transparent calc(100% - 10px)),
+    repeating-linear-gradient(to right, transparent 0 4px, black 4px 12px);
+  mask-size: 100% 100%, 16px 10px;
+  mask-position: 0 0, 0 bottom;
+  mask-repeat: no-repeat, repeat-x;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--paper);
+}
